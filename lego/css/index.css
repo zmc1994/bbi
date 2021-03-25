@@ -1,0 +1,363 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img{
+    width: 100%;
+    display: block;
+}
+@font-face{
+    font-family: "AdobeSongStd";
+    src: url("../fonts/AdobeSongStd-Light.woff2") format("woff2"),
+        url("../fonts/AdobeSongStd-Light.woff") format("woff")
+}
+.pr{
+    position: relative;
+}
+ul li{
+    list-style: none;
+}
+.clearfix:after{/*伪元素是行内元素 正常浏览器清除浮动方法*/
+    content: "";
+    display: block;
+    height: 0;
+    clear:both;
+    visibility: hidden;
+}
+.clearfix{
+    *zoom: 1;/*ie6清除浮动的方式 *号只有IE6-IE7执行，其他浏览器不执行*/
+}
+/* rem适配字体 */
+html{
+    font-size: 62.5%;
+    font-family: "AdobeSongStd";
+    -webkit-font-smoothing: antialiased; 
+}
+html,body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: url("../images/bg.jpg") top center no-repeat;
+    background-size: 100% 100%;
+}
+.page{
+    width: 100%;
+    height: 100%;
+}
+.page .NextBtn{
+    width: 24%;
+    margin: 0 auto;
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 6vh;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+.page .line{
+    width: 95%;
+    height: 1px;
+    background: #fdd106;
+    margin: 0 auto;
+    /* margin-top: 10px; */
+}
+.page .msg{
+    font-size: 1.3rem;
+    width: 70%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 17vw;
+    color: #7c7b7b;
+    opacity: 0;
+}
+.logo{
+    width: 15%;
+}
+#page1{
+    display: block;
+}
+#page2{
+   /* display: block; */
+   padding-top: 5vh;
+}
+#page3{
+    /* display: block; */
+    padding-top: 5vh;
+}
+#page4{
+    /* display: block; */
+    padding-top: 5vh;
+}
+#page5{
+    /* display: block; */
+    padding-top: 5vh;
+}
+#page6{
+    /* display: block; */
+    padding-top: 5vh;
+}
+#page7{
+    /* display: block; */
+    padding-top: 5vh;
+}
+#page8{
+    /* display: block; */
+    padding-top: 5vh;
+}
+#page9{
+    /* display: block; */
+    padding-top: 5vh;
+}
+#page10{
+    /* display: block; */
+    padding-top: 5vh;
+}
+#page1 .homeLogo{
+    width: 18%;
+    margin: 0 auto;
+    padding: 8vh 0;
+}
+#page1 .hometext{
+    width: 75%;
+    margin: 0 auto;
+    padding-bottom: 7vh;
+}
+#page1 .ren1{
+    width: 45%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+#page1 .NextBtn{
+    width: 24%;
+    margin:0 auto;
+    display: block;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+}
+.page .content{
+    width: 85vw;
+    height: 95vh;
+    margin: 0 auto;
+    background: #ffffff;
+}
+.page .logo{
+    padding: 20px 0 0 20px;
+}
+.page .pic{
+    width: 90%;
+    margin: 0 auto;
+}
+.page .qsNum{
+    width: 8vw;
+    position: absolute;
+    left: 8vw;
+}
+.page .question{
+    font-size: 1.8rem;
+    font-weight:bolder;
+    padding-left: 20vw;
+    padding-right: 15px;
+    color: #000;
+}
+.page .answer{
+    float: left;
+    font-size: 1.8rem;
+    font-weight: bolder;
+    margin-left: 4vw;
+}
+.page .unselect{
+    float: left;
+    width: 6vw;
+}
+.page .select{
+    float: left;
+    display: none;
+    width: 6vw;
+}
+.page .answerCoontent{
+    padding-top: 3vh;
+    padding-left: 20vw;
+}
+.page .answerCoontent li{
+    width: 65%;
+    height: 6vw;
+    line-height: 7vw;
+    color: #000;
+}
+.page .answerCoontent li:nth-of-type(1){
+    margin-bottom: 3vh;
+}
+.page .face1{
+    width: 80%;
+    height: 23px;
+    line-height: 23px;
+    font-size: 1.5rem;
+    background: url("../images/face1.png") top left no-repeat;
+    background-size: 20px 23px;
+    padding-left: 25px;
+    margin-bottom: 5px;
+    margin-left: 10vw;
+    margin-top: 3vh;
+    opacity: 0;
+}
+.page .face2{
+    width: 80%;
+    height: 23px;
+    line-height: 23px;
+    font-size: 1.5rem;
+    background: url("../images/face2.png") top left no-repeat;
+    background-size: 20px 23px;
+    padding-left: 25px;
+    margin-bottom: 5px;
+    margin-left: 10vw;
+    margin-top: 3vh;
+    display: none;
+}
+.page .rightren{
+    width: 18%;
+    position: absolute;
+    top: 0;
+    right: -7.5vw;
+    transform: translateY(-80%);
+    -webkit-transform: translateY(-80%);
+    -moz-transform: translateY(-80%);
+    -ms-transform: translateY(-80%);
+    -o-transform: translateY(-80%);
+}
+#page3 .pic{
+    width: 35%;
+    margin-top: -6vh;
+}
+#page4 .pic{
+    width: 35%;
+    margin-bottom:2vh;
+    margin-top: 2vh;
+}
+#page5 .pic{
+    width: 60%;
+    margin-bottom:2vh;
+    margin-top: 2vh;
+}
+#page6 .pic{
+    width: 45%;
+    /* margin-top: -8vh; */
+}
+#page7 .content p{
+   text-align: center;
+   font-size: 1rem;
+   color: #7c7b7b;
+}
+#page7 .endtext{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20vh;
+    margin-bottom: 5vh;
+}
+#page7 .qrcode{
+    width: 40%;
+    margin: 5vh auto;
+}
+#page7 .lastren{
+    width: 40%;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+#page8 .pic{
+    width: 40%;
+    margin-top: -35px;
+}
+#page9 .pic{
+    width: 40%;
+    margin-top: -20px;
+}
+#page10 .pic{
+    width: 55%;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+#launch-btn{
+    width: 90px;
+    height: 47px;
+    display: block;
+    margin: 0 auto;
+}
+/* 小屏适配 */
+@media screen and (max-height: 672px) {
+    #page1 .ren1{
+        width: 30%;
+    }
+    #page5 .pic{
+        width: 50%;
+    }
+    #page7 .lastren{
+        width: 35%;
+    }
+    #page10 .pic{
+        margin-top: -35px;
+    }
+    .page .NextBtn{
+        bottom: 2vh;
+    }
+}
+@media screen and (max-height: 603px) {
+    #page1 .ren1{
+        width: 30%;
+    }
+    #page7  .lastren{
+        width: 35%;
+    }
+    .page .NextBtn{
+        bottom: 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #page2 .pic{
+        width: 60%;
+    }
+    .page .question{
+        font-size: 1.4rem;
+    }
+    .page .answer{
+        font-size: 1.4rem;
+    }
+    #page4 .pic{
+        margin-top: -5vh;
+    }
+    #page5 .pic{
+        width: 30%;
+        margin-top: -5vh;
+    }
+    #page6 .pic{
+        width: 35%;
+    }
+    #page7 .lastren{
+        width: 30%;
+    }
+}
+#page2,#page3,#page4,#page5,#page6,#page8,#page9,#page10{
+    display: none;
+}
+#page7{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10000;
+}

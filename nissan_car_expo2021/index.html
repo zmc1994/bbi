@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nissan</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+    <script>
+        $.post('http://bbi-x.com/api/wechatofficial/pageshare', {
+            url: location.href
+        }, function (res) {
+            wx.config({
+                debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: res.appId, // 必填，公众号的唯一标识
+                timestamp: res.timestamp, // 必填，生成签名的时间戳
+                nonceStr: res.nonceStr, // 必填，生成签名的随机串
+                signature: res.signature,// 必填，签名
+                jsApiList: res.jsApiList // 必填，需要使用的JS接口列表
+            });
+            wx.ready(function () {
+                // 1 判断当前版本是否支持指定 JS 接口，支持批量判断
+                wx.checkJsApi({
+                    jsApiList: [
+                        'updateAppMessageShareData',//朋友
+                        'updateTimelineShareData' //朋友圈
+                    ],
+                    success: function (res) {
+                        console.log("checkJsAPI成功");
+                        console.log(res);
+                    }
+                });
+                wx.error(function(res){
+                    console.log("config信息验证失败");
+                    console.log(res);
+                    // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+                });
+                // 分享logo必须为绝对路径
+                var logoURL ="http://bbi-x.com/project/nissan_car_expo2021/image/logoShare.jpg";
+                var title = "";
+                var link = location.href;
+                var desc = "";
+                // 分享朋友
+                wx.updateAppMessageShareData({
+                    title: title, // 分享标题
+                    desc: desc,
+                    link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: logoURL, // 分享图标
+                    success: function () {
+                        // 设置成功
+                        console.log("分享朋友设置成功！");
+                    }
+                })
+                // 分享朋友圈
+                wx.updateTimelineShareData({
+                    title: title, // 分享标题
+                    link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                    imgUrl: logoURL, // 分享图标
+                    success: function () {
+                        // 设置成功
+                        console.log("分享朋友圈设置成功");
+                    }
+                })
+            });
+        })
+    </script>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 100%;
+            display: block;
+        }
+        #video{
+            width: 100%;
+            height: 49vh;
+            display: block;
+            /* box-shadow: 0px 5px 2px #888888; */
+        }
+        .topwrap{
+            background: url("./image/top-bg.jpg") 0 0 repeat-y;
+            padding: 6vh 0 5vh 0;
+            width: 100%;
+            box-sizing: border-box;
+            background-size: 100%;
+        }
+        .bottompic{
+            width: 100%;
+        }
+        .bottomwrap{
+            background: url("./image/bottom-bg.jpg") 0 0 repeat-y;
+            padding: 2vh 0 20vh 0;
+            width: 100%;
+            box-sizing: border-box;
+            background-size: 100%;
+            margin-top: -1px;
+        }
+        .toptext{
+            width: 57.8%;
+            margin: 0 auto;
+        }
+        .subtext{
+            width: 60.7%;
+            margin: 0 auto;
+        }
+        /* 横CSS */
+        /* @media screen and (orientation:landscape){
+            
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="topwrap">
+        <img src="./image/text-top.png" alt="" class="toptext">
+    </div>
+    <div id="gifPic">
+        <video id="video" controls webkit-playsinline="true" x-webkit-airplay="true" playsinline="true" x5-video-player-type="h5" x5-video-orientation="h5" x5-video-player-fullscreen="true">
+            <source src="" type="video/mp4" id="gif"/>
+        </video>
+    </div>
+    <div>
+        <img src="./image/bottom.jpg" alt="" class="bottompic">
+        <div class="bottomwrap">
+            <img src="./image/subtitle.png" alt="" class="subtext">
+        </div>
+    </div>
+    <script>
+        $(function(){
+            //获取URL图片src
+            (function ($) {
+                $.getUrlParam = function (name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null) return unescape(r[2]);
+                    return null;
+                }
+            })(jQuery);
+            var src = $.getUrlParam('src');
+            var srcAdress = "http://bbi-x.com/uploads/nissan_car_expo2021/"+src+".mp4";
+            $("#gif").attr("src",srcAdress);
+        })
+    </script>
+</body>
+
+</html>

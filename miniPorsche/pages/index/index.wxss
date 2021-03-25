@@ -1,0 +1,15 @@
+input{
+  width: 80%;
+  height: 80rpx;
+  border: 1px solid #000;
+  border-radius: 2px;
+  margin: 20px auto;
+  padding: 0 5px;
+}
+button{
+  margin-bottom: 20px;
+}
+image{
+  width: 150rpx;
+  height: 150rpx;
+}

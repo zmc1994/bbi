@@ -1,0 +1,12 @@
+<view>
+  <input type="number" maxlength="11" placeholder="请输入手机号" bindblur="getvalue"/>
+  <button bindtap="bindViewTap">获取号码归属地</button>
+  <text>{{location}}</text>
+  <!-- <open-data type="userAvatarUrl"></open-data>
+  <open-data type="userNickName" lang="zh_CN"></open-data> -->
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" lang="zh_CN">获取头像</button>
+  <text>{{userInfo.nickName}}</text>
+  <text>{{userInfo.city}}</text>
+  <image src="{{userInfo.avatarUrl}}"></image>
+  <button bindtap="scanCode">扫码</button>
+</view>
